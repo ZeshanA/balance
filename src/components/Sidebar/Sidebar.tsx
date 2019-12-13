@@ -14,8 +14,7 @@ const sidebarStyles = css`
 
 const logoStyles = css`
   width: 100%;
-  border-bottom: solid 1px ${colors.neutrals.grey[8]};
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   color: ${colors.primary.purple[5]};
   font-weight: 400;
