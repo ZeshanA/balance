@@ -26,6 +26,7 @@
     "eject": "react-scripts eject",
     "autotest": "CI=true react-scripts test",
     "lint:js": "eslint 'src/**/*.ts' 'src/**/*.tsx' --cache",
+    "lint:css": "stylelint 'src/**/*.{css,tsx}' --cache",
     "prettier": "pretty-quick --staged",
     "validate": "run-p lint:* prettier autotest"
   },
@@ -56,8 +57,8 @@
     "pretty-quick": "^1.11.1",
     "stylelint": "^12.0.0",
     "stylelint-config-recommended": "^3.0.0",
-    "stylelint-order": "^3.1.1",
-    "stylelint-scss": "^3.11.1"
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.9.0"
   },
   "husky": {
     "hooks": {

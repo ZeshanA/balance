@@ -1,16 +1,7 @@
 {
-  "extends": "stylelint-config-recommended",
-  "plugins": ["stylelint-scss", "stylelint-order"],
-  "rules": {
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
-    "selector-pseudo-class-no-unknown": [
-      true,
-      {
-        "ignorePseudoClasses": ["global"]
-      }
-    ],
-    "order/order": ["custom-properties", "declarations"],
-    "order/properties-alphabetical-order": true
-  }
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+  "processors": ["stylelint-processor-styled-components"]
 }
