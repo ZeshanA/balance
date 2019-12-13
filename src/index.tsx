@@ -1,6 +1,21 @@
-import React from "react";
+import { css, Global } from "@emotion/core";
+import OverviewPage from "pages/OverviewPage/OverviewPage";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import App from "app/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Fragment>
+    <Global
+      styles={css`
+        body {
+          font-family: "Cerebri Sans", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+            "Droid Sans", "Helvetica Neue", sans-serif;
+        }
+      `}
+    />
+    <OverviewPage />
+  </Fragment>,
+  document.getElementById("root")
+);
