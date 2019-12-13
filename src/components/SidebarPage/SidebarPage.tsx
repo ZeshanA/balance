@@ -8,6 +8,7 @@ const pageStyles = css`
 
   & > section {
     flex-grow: 1;
+    padding: 50px;
   }
 `;
 
