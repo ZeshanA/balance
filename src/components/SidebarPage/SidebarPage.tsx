@@ -1,26 +1,27 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import { jsx } from "@emotion/core";
 import Sidebar from "components/Sidebar/Sidebar";
 import React from "react";
+import styled from "@emotion/styled";
 
-const pageStyles = css`
+const Page = styled.div`
   display: flex;
-
-  & > section {
-    flex-grow: 1;
-    padding: 50px;
-  }
 `;
 
-const SidebarPage: React.FC<SidebarPageProps> = ({ children }) => (
-  <div css={pageStyles}>
-    <Sidebar></Sidebar>
-    <section>{children}</section>
-  </div>
-);
+const ContentWrapper = styled.section`
+  flex-grow: 1;
+  padding: 50px;
+`;
 
 interface SidebarPageProps {
   children?: React.ReactNode;
 }
+
+const SidebarPage: React.FC<SidebarPageProps> = ({ children }) => (
+  <Page>
+    <Sidebar />
+    <ContentWrapper>{children}</ContentWrapper>
+  </Page>
+);
 
 export default SidebarPage;

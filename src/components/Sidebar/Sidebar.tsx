@@ -1,18 +1,22 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import { jsx } from "@emotion/core";
 import { faWeight } from "@fortawesome/pro-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import colors from "styles/colors";
 import fonts from "styles/fonts";
+import styled from "@emotion/styled";
 
-const sidebarStyles = css`
-  width: 280px;
+/* ================================================================================================================== */
+/* Styles
+/* ================================================================================================================== */
+const Wrapper = styled.div`
+  min-width: 280px;
   background-color: ${colors.neutrals.grey[9]};
   height: 100vh;
 `;
 
-const logoStyles = css`
+const Logo = styled.div`
   width: 100%;
   padding: 30px;
   text-align: center;
@@ -26,12 +30,15 @@ const logoStyles = css`
   }
 `;
 
+/* ================================================================================================================== */
+/* Component
+/* ================================================================================================================== */
 const Sidebar: React.FC = () => (
-  <div css={sidebarStyles}>
-    <div css={logoStyles}>
+  <Wrapper>
+    <Logo>
       <FontAwesomeIcon icon={faWeight} /> Balance
-    </div>
-  </div>
+    </Logo>
+  </Wrapper>
 );
 
 export default Sidebar;
