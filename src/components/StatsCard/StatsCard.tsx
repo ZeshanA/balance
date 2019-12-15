@@ -12,7 +12,7 @@ const Section = styled.section<{ gradient?: Gradient }>`
   height: 300px;
   background: linear-gradient(
     45deg,
-    ${({ gradient }) => colors.gradients[gradient ?? Color.purple]}
+    ${({ gradient }): string => colors.gradients[gradient ?? Color.purple][0]}
   );
   border-radius: 10px;
   padding: 45px;
