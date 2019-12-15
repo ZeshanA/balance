@@ -26,7 +26,7 @@ const logoStyles = css`
   }
 `;
 
-const Sidebar: React.SFC = () => (
+const Sidebar: React.FC = () => (
   <div css={sidebarStyles}>
     <div css={logoStyles}>
       <FontAwesomeIcon icon={faWeight} /> Balance

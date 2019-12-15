@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import SidebarPage from "components/SidebarPage/SidebarPage";
+import StatsCard from "components/StatsCard/StatsCard";
 import React from "react";
-import colors from "styles/colors";
+import colors, { Color } from "styles/colors";
 import fonts from "styles/fonts";
 
 const headingStyles = css`
@@ -26,6 +27,8 @@ const OverviewPage: React.FC<{}> = () => (
       Hey, <strong>Zeshan!</strong>
     </h1>
     <p css={subheadingStyles}>Here is an overview of your progress so far.</p>
+    <StatsCard gradient={Color.red}></StatsCard>
+    <StatsCard gradient={Color.purple}></StatsCard>
   </SidebarPage>
 );
 

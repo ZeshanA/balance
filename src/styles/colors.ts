@@ -1,6 +1,31 @@
-export default {
+/* Mapping to strings is annoying but allows us to access colors
+ * without specifying the enum type, like this: ${colors.primary.purple} */
+export enum Color {
+  purple = "purple",
+  teal = "teal",
+  grey = "grey",
+  blue = "blue",
+  yellow = "yellow",
+  red = "red"
+}
+
+/* Before adding another color to one of the groups in the color scheme,
+ * make sure you define it inside the Pick<> type here */
+interface ColorScheme {
+  primary: Pick<Record<Color, string[]>, Color.purple | Color.teal>;
+  neutrals: Pick<Record<Color, string[]>, Color.grey>;
+  supporting: Pick<
+    Record<Color, string[]>,
+    Color.blue | Color.yellow | Color.red
+  >;
+  gradients: Pick<Record<Color, string[]>, Color.purple | Color.red>;
+}
+
+export type Gradient = keyof ColorScheme["gradients"];
+
+const colorScheme: ColorScheme = {
   primary: {
-    purple: [
+    [Color.purple]: [
       "#0C008C",
       "#1D0EBE",
       "#3525E6",
@@ -11,7 +36,7 @@ export default {
       "#A2A5FC",
       "#C4C6FF"
     ],
-    teal: [
+    [Color.teal]: [
       "#014D40",
       "#0C6B58",
       "#147D64",
@@ -25,7 +50,7 @@ export default {
     ]
   },
   neutrals: {
-    grey: [
+    [Color.grey]: [
       "#102A43",
       "#243B53",
       "#334E68",
@@ -39,7 +64,7 @@ export default {
     ]
   },
   supporting: {
-    blue: [
+    [Color.blue]: [
       "#035388",
       "#0B69A3",
       "#127FBF",
@@ -51,7 +76,7 @@ export default {
       "#B3ECFF",
       "#E3F8FF"
     ],
-    yellow: [
+    [Color.yellow]: [
       "#8D2B0B",
       "#B44D12",
       "#CB6E17",
@@ -63,7 +88,7 @@ export default {
       "#FFF3C4",
       "#FFFBEA"
     ],
-    red: [
+    [Color.red]: [
       "#610316",
       "#8A041A",
       "#AB091E",
@@ -75,5 +100,11 @@ export default {
       "#FFBDBD",
       "#FFE3E3"
     ]
+  },
+  gradients: {
+    [Color.purple]: [`#635BFA 0%, #CC84E6 100%`],
+    [Color.red]: [`#CF1124 0%, #FFAD80 100%`]
   }
 };
+
+export default colorScheme;
