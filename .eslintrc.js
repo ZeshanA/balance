@@ -2,7 +2,7 @@ module.exports = {
   plugins: ["react"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 11,
+    ecmaVersion: 2018,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
