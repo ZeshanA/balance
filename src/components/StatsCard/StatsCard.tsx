@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-import { faCoffee } from "@fortawesome/pro-regular-svg-icons";
+import { IconDefinition } from "@fortawesome/pro-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import colors, { Color, Gradient } from "styles/colors";
@@ -28,11 +28,16 @@ const Section = styled.section<{ gradient?: Gradient }>`
   }
 `;
 
-const StatsCard: React.FC<StatsCardProps> = ({ children, gradient }) => (
+const StatsCard: React.FC<StatsCardProps> = ({
+  children,
+  gradient,
+  title,
+  icon
+}) => (
   <Section gradient={gradient}>
     <header>
-      <FontAwesomeIcon size="lg" icon={faCoffee} />
-      <h3>Change Over Time</h3>
+      <FontAwesomeIcon size="lg" icon={icon} />
+      <h3>{title}</h3>
     </header>
     <div>{children}</div>
   </Section>
@@ -41,6 +46,8 @@ const StatsCard: React.FC<StatsCardProps> = ({ children, gradient }) => (
 interface StatsCardProps {
   children?: React.ReactNode;
   gradient?: Gradient;
+  title: string;
+  icon: IconDefinition;
 }
 
 export default StatsCard;

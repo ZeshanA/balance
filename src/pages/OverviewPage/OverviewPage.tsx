@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import { faBullseyeArrow, faHistory } from "@fortawesome/pro-regular-svg-icons";
 import SidebarPage from "components/SidebarPage/SidebarPage";
 import StatsCard from "components/StatsCard/StatsCard";
 import React from "react";
@@ -27,8 +28,16 @@ const OverviewPage: React.FC<{}> = () => (
       Hey, <strong>Zeshan!</strong>
     </h1>
     <p css={subheadingStyles}>Here is an overview of your progress so far.</p>
-    <StatsCard gradient={Color.red}></StatsCard>
-    <StatsCard gradient={Color.purple}></StatsCard>
+    <StatsCard
+      title="Change Over Time"
+      icon={faHistory}
+      gradient={Color.purple}
+    >
+      Hello, world!
+    </StatsCard>
+    <StatsCard title="Checkpoints" icon={faBullseyeArrow} gradient={Color.red}>
+      Hello again, world!
+    </StatsCard>
   </SidebarPage>
 );
 
