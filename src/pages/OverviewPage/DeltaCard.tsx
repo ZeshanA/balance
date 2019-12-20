@@ -34,6 +34,7 @@ const DeltaStatistic: React.FC<DeltaStatisticProps> = props => (
 );
 
 const statisticHeadingStyles = css`
+  margin-bottom: 5px;
   font-size: ${fonts.sizes[1]};
   font-weight: 100;
   strong {
