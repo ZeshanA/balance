@@ -5,6 +5,7 @@ import React from "react";
 import colors from "styles/colors";
 import fonts from "styles/fonts";
 import DeltaCard from "./DeltaCard";
+import { motion, Variants } from "framer-motion";
 
 /* ================================================================================================================== */
 /* Styles
@@ -38,17 +39,45 @@ const cardStyles = css`
 `;
 
 /* ================================================================================================================== */
+/* Animation Variants
+/* ================================================================================================================== */
+const wrapper: Variants = {
+  final: {
+    transition: {
+      staggerChildren: 0.02
+    }
+  }
+};
+
+const item: Variants = {
+  initial: {
+    opacity: 0.8,
+    y: -100
+  },
+  final: {
+    opacity: 1,
+    y: 0,
+    transition: { damping: 9, type: "spring" }
+  }
+};
+
+/* ================================================================================================================== */
 /* Component
 /* ================================================================================================================== */
+
 const OverviewPage: React.FC = () => (
   <SidebarPage>
-    <h1 css={headingStyles}>
-      Hey, <strong>Zeshan!</strong>
-    </h1>
-    <p css={subheadingStyles}>Here is an overview of your progress so far.</p>
-    <section css={cardGridStyles}>
-      <DeltaCard css={cardStyles} />
-    </section>
+    <motion.div initial="initial" animate="final" variants={wrapper}>
+      <motion.h1 variants={item} css={headingStyles}>
+        Hey, <strong>Zeshan!</strong>
+      </motion.h1>
+      <motion.p variants={item} css={subheadingStyles}>
+        Here is an overview of your progress so far.
+      </motion.p>
+      <motion.section variants={item} css={cardGridStyles}>
+        <DeltaCard css={cardStyles} />
+      </motion.section>
+    </motion.div>
   </SidebarPage>
 );
 
