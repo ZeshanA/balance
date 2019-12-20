@@ -49,8 +49,8 @@ const DeltaCard: React.FC = props => (
         display: "grid",
         marginTop: "30px",
         gridTemplateColumns: "1fr 1fr",
-        columnGap: "20px",
-        rowGap: "20px"
+        columnGap: "50px",
+        rowGap: "30px"
       }}
     >
       <DeltaStatistic>
