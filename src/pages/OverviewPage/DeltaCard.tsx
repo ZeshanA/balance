@@ -5,6 +5,7 @@ import Card from "components/Card/Card";
 import React from "react";
 import CardHeading from "../../components/Card/CardHeading";
 import Statistic, {
+  StatisticHeading,
   StatisticValue
 } from "../../components/Statistic/Statistic";
 import fonts from "../../styles/fonts";
@@ -12,6 +13,13 @@ import fonts from "../../styles/fonts";
 /* ================================================================================================================== */
 /* Styles
 /* ================================================================================================================== */
+const statisticGridStyles = css`
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 30px;
+`;
 
 /* ================================================================================================================== */
 /* Component
@@ -20,66 +28,53 @@ interface DeltaStatisticProps {
   children: React.ReactNode;
   title?: string | React.ReactNode;
 }
+
+const DeltaCard: React.FC = props => (
+  <Card {...props}>
+    <CardHeading icon={faHistory}>Change Over Time</CardHeading>
+    <div css={statisticGridStyles}>
+      <DeltaStatistic>
+        <StatisticHeading>
+          From Your <strong>Start Date</strong>
+        </StatisticHeading>
+        <StatisticValue>2.9</StatisticValue>
+      </DeltaStatistic>
+
+      <DeltaStatistic>
+        <StatisticHeading>
+          This <strong>Week</strong>
+        </StatisticHeading>
+        <StatisticValue>2.9</StatisticValue>
+      </DeltaStatistic>
+
+      <DeltaStatistic>
+        <StatisticHeading>
+          This <strong>Month</strong>
+        </StatisticHeading>
+        <StatisticValue>0.6</StatisticValue>
+      </DeltaStatistic>
+
+      <DeltaStatistic>
+        <StatisticHeading>
+          This <strong>Year</strong>
+        </StatisticHeading>
+        <StatisticValue>2.3</StatisticValue>
+      </DeltaStatistic>
+    </div>
+  </Card>
+);
+
 const DeltaStatistic: React.FC<DeltaStatisticProps> = props => (
   <section>
     <Statistic
       {...props}
-      css={{ fontSize: fonts.sizes[8], display: "block" }}
+      css={{ fontSize: fonts.sizes[8] }}
       unit="kg"
       icon={faArrowDown}
     >
       {props.children}
     </Statistic>
   </section>
-);
-
-const statisticHeadingStyles = css`
-  margin-bottom: 5px;
-  font-size: ${fonts.sizes[1]};
-  font-weight: 100;
-  strong {
-    font-weight: 500;
-  }
-`;
-
-const DeltaCard: React.FC = props => (
-  <Card {...props}>
-    <CardHeading icon={faHistory}>Change Over Time</CardHeading>
-    <div
-      css={{
-        display: "grid",
-        marginTop: "30px",
-        gridTemplateColumns: "1fr 1fr",
-        columnGap: "50px",
-        rowGap: "30px"
-      }}
-    >
-      <DeltaStatistic>
-        <h3 css={statisticHeadingStyles}>
-          From Your <strong>Start Date</strong>
-        </h3>
-        <StatisticValue>2.9</StatisticValue>
-      </DeltaStatistic>
-      <DeltaStatistic>
-        <h3 css={statisticHeadingStyles}>
-          This <strong>Week</strong>
-        </h3>
-        <StatisticValue>2.9</StatisticValue>
-      </DeltaStatistic>
-      <DeltaStatistic>
-        <h3 css={statisticHeadingStyles}>
-          This <strong>Month</strong>
-        </h3>
-        <StatisticValue>0.6</StatisticValue>
-      </DeltaStatistic>
-      <DeltaStatistic>
-        <h3 css={statisticHeadingStyles}>
-          This <strong>Year</strong>
-        </h3>
-        <StatisticValue>2.3</StatisticValue>
-      </DeltaStatistic>
-    </div>
-  </Card>
 );
 
 export default DeltaCard;

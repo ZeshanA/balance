@@ -1,15 +1,35 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
+import { css, jsx } from "@emotion/core";
 import { IconDefinition } from "@fortawesome/pro-regular-svg-icons";
 import React, { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import _ from "lodash";
+import fonts from "../../styles/fonts";
 
+/* ================================================================================================================== */
+/* Styles
+/* ================================================================================================================== */
+const statisticHeadingStyles = css`
+  margin-bottom: 5px;
+  font-size: ${fonts.sizes[1]};
+  font-weight: 100;
+  strong {
+    font-weight: 500;
+  }
+`;
+
+/* ================================================================================================================== */
+/* Components
+/* ================================================================================================================== */
 export interface StatisticProps {
   children: React.ReactNode;
   icon?: IconDefinition;
   unit: string;
 }
+
+export const StatisticHeading: React.FC = ({ children }) => (
+  <h3 css={statisticHeadingStyles}>{children}</h3>
+);
 
 export const StatisticValue: React.FC<{
   children: React.ReactNode;
