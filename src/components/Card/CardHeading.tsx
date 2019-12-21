@@ -8,6 +8,7 @@ import fonts from "styles/fonts";
 
 const Wrapper = styled.header`
   font-size: ${fonts.sizes[4]};
+  margin-bottom: 30px;
 `;
 
 const Title = styled.h3`

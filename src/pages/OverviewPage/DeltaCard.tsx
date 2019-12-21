@@ -15,7 +15,6 @@ import fonts from "../../styles/fonts";
 /* ================================================================================================================== */
 const statisticGridStyles = css`
   display: grid;
-  margin-top: 30px;
   grid-template-columns: 1fr 1fr;
   column-gap: 50px;
   row-gap: 30px;

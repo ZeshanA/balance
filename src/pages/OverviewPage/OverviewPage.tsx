@@ -6,6 +6,7 @@ import colors from "styles/colors";
 import fonts from "styles/fonts";
 import DeltaCard from "./DeltaCard";
 import { motion, Variants } from "framer-motion";
+import CheckpointCard from "./CheckpointCard";
 
 /* ================================================================================================================== */
 /* Styles
@@ -76,6 +77,7 @@ const OverviewPage: React.FC = () => (
       </motion.p>
       <motion.section variants={item} css={cardGridStyles}>
         <DeltaCard css={cardStyles} />
+        <CheckpointCard css={cardStyles} />
       </motion.section>
     </motion.div>
   </SidebarPage>

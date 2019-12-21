@@ -24,6 +24,18 @@ const globalStyles = css`
   p {
     margin: 0;
   }
+
+  legend {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 ReactDOM.render(
